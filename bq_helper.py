@@ -18,11 +18,11 @@ class BigQueryHelper(object):
     https://googlecloudplatform.github.io/google-cloud-python/latest/bigquery/reference.html
     """
 
-    def __init__(self, active_project, dataset_name, max_wait_seconds=180):
+    def __init__(self, active_project, dataset_name, max_wait_seconds=180, project_id=None):
         self.project_name = active_project
         self.dataset_name = dataset_name
         self.max_wait_seconds = max_wait_seconds
-        self.client = bigquery.Client()
+        self.client = bigquery.Client(project_id)
         self.__dataset_ref = self.client.dataset(self.dataset_name, project=self.project_name)
         self.dataset = None
         self.tables = dict()  # {table name (str): table object}
