@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 from version import __version__ as version
 
 setup(name='bq_helper',
